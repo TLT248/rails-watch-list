@@ -1,1 +1,16 @@
 // Specific CSS for your home-page
+
+.mon-header {
+  height: 70px;
+  padding: 10px 20px 10px 10px;
+  border-bottom: 1px solid grey;
+  gap: 10px;
+  align-items: center;
+}
+
+.cover-cinema {
+  background-image: asset-url("cinema.webp");
+  background-size: cover;
+  height: 300px;
+  align-items: center;
+}

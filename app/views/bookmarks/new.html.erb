@@ -1,0 +1,54 @@
+<div class="d-flex row m-4 justify-content-between">
+
+  <div id="display-list" class="col-8 border">
+    <h3>Movies on your list</h3>
+
+    <% @list.movies.each do |movie| %>
+      <div class="card mb-3">
+        <div class="row g-0">
+          <div class="col-md-2">
+            <img src="<%= movie.poster_url %>" class="img-fluid rounded-start" alt="...">
+          </div>
+          <div class="col-md-10">
+            <div class="card-body">
+              <h5 class="card-title"><%= movie.title %></h5>
+              <p class="card-text"><%= movie.overview %></p>
+              <p class="card-text"><small class="text-body-secondary">Viewers rating : <%= movie.rating %></small></p>
+              <h3><i class="fa-solid fa-trash-can"></i></h3>
+              <%= button_to 'Delete task', bookmark_path(Bookmark.find_by(list: @list, movie: movie)), data: {turbo_method: :delete, turbo_confirm: "Are you sure?"} do %>
+                <h3><i class="fa-solid fa-trash-can"></i></h3>
+              <% end %>
+            </div>
+          </div>
+        </div>
+      </div>
+    <% end %>
+
+
+   <div>
+      <%= link_to "Back to lists", lists_path %>
+    </div>
+  </div>
+
+  <div id="column-right" class="col-3 border">
+    <div id="formulaire">
+      <% content_for :title, "Add a movie to the list (new bookmark)" %>
+      <h3>Add a movie to the list</h3>
+
+      <%= simple_form_for [@list, @bookmark] do |f| %>
+
+        <div class="form-inputs">
+          <%= f.association :movie, as: :select, prompt: "Choose a movie" %>
+        </div>
+
+        <div class="form-inputs">
+          <%= f.input :comment %>
+        </div>
+
+        <div class="form-actions">
+          <%= f.button :submit, "Add this movie" %>
+        </div>
+      <% end %>
+    </div>
+  </div>
+</div>

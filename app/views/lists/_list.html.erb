@@ -1,0 +1,11 @@
+<div id="<%= dom_id list %>">
+  <div>
+    <strong>Name:</strong>
+    <%= list.name %>
+    <p>Movies: </p>
+    <% list.movies.each do |movie| %>
+    <p><%= movie.title %></p>
+    <% end %>
+  </div>
+
+</div>

@@ -18,12 +18,29 @@
     <link rel="icon" href="/icon.svg" type="image/svg+xml">
     <link rel="apple-touch-icon" href="/icon.png">
 
+
     <%# Includes all stylesheet files in app/assets/stylesheets %>
     <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
     <%= javascript_importmap_tags %>
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.3.1/css/all.min.css">
+
   </head>
 
   <body>
+
+  <header class=" mon-header d-flex justify-content-between">
+    <div>
+      <%= image_tag "popcorn.png", alt: "popcorn", width: 50 %>
+    </div>
+    <div>
+      <a href="lists/new" class="btn btn-success">New List</a>
+    </div>
+  </header>
+
+<div class="cover-cinema"></div>
+
+
     <%= yield %>
   </body>
 </html>

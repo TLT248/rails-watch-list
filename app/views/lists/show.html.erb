@@ -1,0 +1,11 @@
+<p style="color: green"><%= notice %></p>
+
+<%= render @list %>
+
+<div>
+  <%= link_to "Add a movie", new_list_bookmark_path(@list) %> |
+
+
+  <%= link_to "Back to lists", lists_path %>
+  <%#= button_to "Destroy this list", @list, method: :delete %>
+</div>
